@@ -22,7 +22,7 @@ let g:solarized_visibility="normal"
 
 set background=dark
 set t_Co=256
-colorscheme solarized
+colorscheme molokai
 
 nmap <leader>nt :NERDTree<CR>
 let NERDTreeHighlightCursorline=1

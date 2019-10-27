@@ -1,7 +1,11 @@
 set nu
 syntax on
-set ts=4
 set paste
+set ts=4
+set backspace=indent,eol,start "以防backspace键
+" autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" set nowrap " 设置不自动换行
+" set listchars=tab:>-,trail:-
 " *************************
 " after by lwk
 set nocompatible              " be iMproved, required
@@ -10,15 +14,16 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" " alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
 "
 " " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-" Plugin 'valloric/YouCompleteMe'
+Plugin 'valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 
 Plugin 'tomasr/molokai'
 
-Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/ctags.vim'
@@ -33,14 +38,7 @@ nmap <F10> :TagbarToggle<CR>
 let g:tagbar_ctags_bin='/usr/bin/ctags'
 let g:tagbar_width=30
 autocmd BufReadPost *.py*.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
-let g:jedi#auto_initialization = 1
 let g:SuperTabDefaultCompletionType="context"
-let g:jedi#completions_command = "<Tab>"
-" let g:jedi#popup_on_dot=0
-
-" let g:solarized_termtrans=1
-" let g:solarized_contrast="normal"
-" let g:solarized_visibility="normal"
 
 set background=dark
 set t_Co=256
@@ -95,7 +93,10 @@ let g:rbpt_max = 40
 let g:rbpt_loadcmd_toggle = 0
 
 let g:indent_guides_enable_on_vim_startup = 0  " 默认关闭
-let g:indent_guides_guide_size            = 1  " 指定对齐线的尺寸
-let g:indent_guides_start_level           = 2  " 从第二层开始可视化显示缩进
+let g:indent_guides_guide_size = 1  " 指定对齐线的尺寸
+let g:indent_guides_start_level = 2  " 从第二层开始可视化显示缩进
+
+let g:ycm_python_binary_path='/usr/lwk/miniconda3/bin/python3.7'
+let g:ycm_seed_indentifiers_with_syntax=1
 
 map <F5> :w<cr>:r!python3 %<cr>

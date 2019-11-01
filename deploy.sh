@@ -10,9 +10,6 @@
 # 传递的为数组
 # echo "${a[*]}"
 
-# 清除自带的 vi/vim && 安装完整版 vim
-# sudo yum remove vi vim-common vim-tiny -y && yum install vim -y
-
 # 检查是否含有某命令
 function check(){
 	cmds=$1
@@ -29,3 +26,23 @@ function check(){
 # 测试是否含有命令数组
 a=(git wget)
 check "${a[*]}"
+
+yum install -y gcc gcc-c++ ncurses-devel python3-devel
+
+# 清除vim，并安装nvim
+sudo yum remove vim vi vim-common vim-tiny
+
+yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+neovim python3-neovim cmake ctags
+i
+# 安装自动补全脚本
+# wget https://github.com/junegunn/vim-plug/raw/master/plug.vim -C
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/plugged/YouCompleteMe
+cd ~/.vim/plugged/YouCompleteMe
+git submodule update --init --recursive
+
+cd ~/.vim/plugged/YouCompleteMe
+python install.py
+
+pip install pynvim -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com

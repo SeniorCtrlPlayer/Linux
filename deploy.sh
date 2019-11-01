@@ -7,11 +7,14 @@
 # a=(git wget)
 # 传递的为数组的第一个参数
 # echo "$a"
-# 传递的为数组
-# echo "${a[*]}"
 
 # 检查是否含有某命令
 function check(){
+# 使用示例
+#########################
+# a=(git wget)
+# check "${a[*]}"
+#########################
 	cmds=$1
 	for cmd in ${cmds[*]}; do
 		check=`which $cmd &> /dev/null`
@@ -22,11 +25,9 @@ function check(){
 		fi
 	done
 }
+check wget
 
-# 测试是否含有命令数组
-a=(git wget)
-check "${a[*]}"
-
+:<<EOF
 yum install -y gcc gcc-c++ ncurses-devel python3-devel
 
 # 清除vim，并安装nvim
@@ -46,3 +47,4 @@ cd ~/.vim/plugged/YouCompleteMe
 python install.py
 
 pip install pynvim -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+EOF

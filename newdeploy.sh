@@ -10,6 +10,9 @@ _green() { echo -e ${green}$*${none}; }
 _yellow() { echo -e ${yellow}$*${none}; }
 _magenta() { echo -e ${magenta}$*${none}; }
 _cyan() { echo -e ${cyan}$*${none}; }
+# example
+# _red "helloworld"
+
 
 # 获取系统发行版本
 release=`lsb_release -a | grep "Distributor ID:"`
@@ -49,11 +52,11 @@ custom_install() {
 			# make cache
 			yum makecache
 		else
-			echo "repo is already aliyun"
+			_green "repo is already"
 		fi
 		;;
 	*)
-		echo "only support CentOS"
+		_red "only support CentOS"
 		;;
 	esac
 }
@@ -61,6 +64,7 @@ custom_install() {
 git_install() {
 	# install
 	yum install -y git
+	_green "git has been installed"
 	# DNS to speed git
 	sed -i '$a\140.82.114.4 github.com' /etc/hosts
 }
@@ -70,14 +74,21 @@ zsh_install() {
 	# oh-my-zsh
 }
 
-conda_install() {
-	echo "miniconda"
-	# miniconda
-}
-
 nvim_install() {
-	echo "nvim"
-	# nvim, ycm
+	# realitive
+	yum install -y cmake gcc gcc-c++ ncurses-devel ctags
+	# remove vim
+	yum remove vim vi vim-common vim-tiny
+	# nvim
+	yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+	yum install -y neovim python3-neovim
+	cmd=`python --version`
+	python_default_version=${cmd:7:1}
+	if [ $python_default_version -ne "3" ];then
+		_red "your default_python is not python3"
+	else
+		pip install pynvim -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+	fi
 }
 
 hadoop_install() {
@@ -89,10 +100,9 @@ while :; do
 	echo -e "**********自动部署脚本**********\n"
 	echo "1. custom"
 	echo "2. zsh"
-	echo "3. miniconda3"
-	echo "4. nvim"
-	echo "5. hadoop"
-	echo "6. "
+	echo "3. nvim"
+	echo "4. hadoop"
+	echo "5. "
 	echo -e "\n**********自动部署脚本**********"
 	read -p "$(echo -e "请选择(q退出) ${red}1-2$none:" )" choose
 	case $choose in
@@ -105,10 +115,9 @@ while :; do
 	3)
 		;;
 	4)
+		nvim_install
 		;;
 	5)
-		;;
-	6)
 		;;
 	q)
 		break;;

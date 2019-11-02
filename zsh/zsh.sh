@@ -1,6 +1,6 @@
 # 安装oh-my-zsh
 # sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-wget -c https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh ./install.sh
+wget -O install.sh https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
 
 # 安装zsh
 sudo yum install -y zsh

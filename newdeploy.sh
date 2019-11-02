@@ -71,6 +71,8 @@ git_install() {
 
 zsh_install() {
 	echo "zsh"
+	cd zsh
+	./powerline.sh
 	# oh-my-zsh
 }
 

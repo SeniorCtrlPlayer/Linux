@@ -34,9 +34,9 @@ check() {
 	done
 }
 
-custom() {
+custom_install() {
 	# wget, aria2, lrzsz, bash-completion
-	# yum install -y wget aria2 lrzsz bash-completion
+	yum install -y wget aria2 lrzsz bash-completion tree
 
 	case $OS_name in
 	"CentOS")
@@ -52,31 +52,35 @@ custom() {
 			echo "repo is already aliyun"
 		fi
 		;;
-	"Ubuntu")
-		echo "Ubuntu"
-		;;
 	*)
-		echo "your system is unspported"
+		echo "only support CentOS"
 		;;
 	esac
 }
 
-zsh() {
+git_install() {
+	# install
+	yum install -y git
+	# DNS to speed git
+	sed -i '$a\140.82.114.4 github.com' /etc/hosts
+}
+
+zsh_install() {
 	echo "zsh"
 	# oh-my-zsh
 }
 
-conda() {
+conda_install() {
 	echo "miniconda"
 	# miniconda
 }
 
-nvim() {
+nvim_install() {
 	echo "nvim"
 	# nvim, ycm
 }
 
-hadoop() {
+hadoop_install() {
 	echo "hadoop"
 	# java, hadoop, hbase
 }
@@ -93,9 +97,10 @@ while :; do
 	read -p "$(echo -e "请选择(q退出) ${red}1-2$none:" )" choose
 	case $choose in
 	1)
-		custom
+		custom_install
 		;;
 	2)
+		git_install
 		;;
 	3)
 		;;

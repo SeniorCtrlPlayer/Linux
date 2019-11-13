@@ -5,7 +5,7 @@
 #   Author        : lwk
 #   Email         : 510062390@qq.com
 #   File Name     : newdeploy.sh
-#   Last Modified : 2019-11-13 18:22
+#   Last Modified : 2019-11-13 18:26
 #   Describe      :
 #
 # ====================================================
@@ -120,9 +120,9 @@ while :; do
 	echo -e "**********自动部署脚本**********\n"
 	echo "1. custom"
 	echo "2. zsh"
-	echo "3. nvim"
-	echo "4. hadoop"
-	echo "5. "
+	echo "3. git"
+	echo "4. nvim"
+	echo "5. hadoop"
 	echo -e "\n**********自动部署脚本**********"
 	read -p "$(echo -e "请选择(q退出) ${red}1-5$none:" )" choose
 	case $choose in

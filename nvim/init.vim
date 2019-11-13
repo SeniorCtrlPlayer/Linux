@@ -4,9 +4,11 @@ set ts=4 "设置tab为4个空格
 set autoindent "自动缩进
 set listchars=tab:>-,trail:- "设置空格和tab可见
 
+" 设置状态栏显示行列号
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 " 设置所在行列高亮
 set cul
-set cuc
+"set cuc
 
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -18,7 +20,7 @@ nnoremap <leader>w :w<cr>
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'tomasr/molokai'
-Plug 'valloric/YouCompleteMe'
+"Plug 'valloric/YouCompleteMe'
 Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/ctags.vim'
 Plug 'nine2/vim-copyright'
@@ -41,11 +43,11 @@ let g:tagbar_width=30
 autocmd BufReadPost *.py*.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 
 " ycm_config
-let g:ycm_global_ycm_extra_conf='/root/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-let g:ycm_key_list_select_completion=['<C-n>']
-let g:python3_host_prog='/root/miniconda3/bin/python3.7'
-let g:ycm_python_binary_path='/root/miniconda3/bin/python3.7'
-let g:ycm_seed_identifiers_with_syntax=1
+"let g:ycm_global_ycm_extra_conf='/root/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+"let g:ycm_key_list_select_completion=['<C-n>']
+"let g:python3_host_prog='/root/miniconda3/bin/python3.7'
+"let g:ycm_python_binary_path='/root/miniconda3/bin/python3.7'
+"let g:ycm_seed_identifiers_with_syntax=1
 
 " copyright
 nmap <F4> :CopyrightAdd<CR>

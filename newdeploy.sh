@@ -5,7 +5,7 @@
 #   Author        : lwk
 #   Email         : 510062390@qq.com
 #   File Name     : newdeploy.sh
-#   Last Modified : 2019-11-13 18:26
+#   Last Modified : 2019-11-13 19:01
 #   Describe      :
 #
 # ====================================================
@@ -102,10 +102,10 @@ nvim_install() {
 	yum install -y neovim python3-neovim
 	# 插件管理器
 	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	cmd=`python --version`
-	python_default_version=${cmd:7:1}
-	if [ $python_default_version -ne "3" ];then
-		_red "your default_python is not python3"
+
+	py_V=`python -V 2>&1|awk '{print $2}'|awk -F '.' '{print $1}'`
+	if [[ $py_V -ne "3" ]];then
+		_red "your py_version is not python3"
 	else
 		pip install pynvim -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
 	fi

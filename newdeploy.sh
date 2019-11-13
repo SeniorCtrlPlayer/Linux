@@ -38,6 +38,7 @@ check() {
 }
 
 custom_install() {
+	# done
 	# wget, aria2, lrzsz, bash-completion
 	yum install -y wget aria2 lrzsz bash-completion tree
 
@@ -62,11 +63,15 @@ custom_install() {
 }
 
 git_install() {
+	# done
 	# install
 	yum install -y git
 	_green "git has been installed"
 	# DNS to speed git
 	sed -i '$a\140.82.114.4 github.com' /etc/hosts
+	# set email and name
+	git config --global user.email "510062390@qq.com"
+	git config --global user.name "SeniorCtrlPlayer"
 }
 
 zsh_install() {
@@ -84,6 +89,8 @@ nvim_install() {
 	# nvim
 	yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 	yum install -y neovim python3-neovim
+	# 插件管理器
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	cmd=`python --version`
 	python_default_version=${cmd:7:1}
 	if [ $python_default_version -ne "3" ];then

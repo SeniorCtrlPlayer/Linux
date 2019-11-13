@@ -1,4 +1,15 @@
 # color scheme                             
+# ====================================================
+#   Copyright (C)2019 All rights reserved.
+#
+#   Author        : lwk
+#   Email         : 510062390@qq.com
+#   File Name     : newdeploy.sh
+#   Last Modified : 2019-11-13 18:22
+#   Describe      :
+#
+# ====================================================
+
 red='\e[91m'
 green='\e[92m'
 yellow='\e[93m'
@@ -90,7 +101,7 @@ nvim_install() {
 	yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 	yum install -y neovim python3-neovim
 	# 插件管理器
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	cmd=`python --version`
 	python_default_version=${cmd:7:1}
 	if [ $python_default_version -ne "3" ];then
@@ -113,7 +124,7 @@ while :; do
 	echo "4. hadoop"
 	echo "5. "
 	echo -e "\n**********自动部署脚本**********"
-	read -p "$(echo -e "请选择(q退出) ${red}1-2$none:" )" choose
+	read -p "$(echo -e "请选择(q退出) ${red}1-5$none:" )" choose
 	case $choose in
 	1)
 		custom_install

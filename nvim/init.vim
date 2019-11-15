@@ -3,6 +3,7 @@ set paste
 set ts=4 "设置tab为4个空格
 set autoindent "自动缩进
 set listchars=tab:>-,trail:- "设置空格和tab可见
+set directory=. "设置swap file位置
 
 " 设置状态栏显示行列号
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P

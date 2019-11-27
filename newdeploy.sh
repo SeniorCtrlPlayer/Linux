@@ -5,7 +5,7 @@
 #   Author        : lwk
 #   Email         : 510062390@qq.com
 #   File Name     : newdeploy.sh
-#   Last Modified : 2019-11-13 19:01
+#   Last Modified : 2019-11-27 21:53
 #   Describe      :
 #
 # ====================================================
@@ -51,7 +51,7 @@ check() {
 custom_install() {
 	# done
 	# wget, aria2, lrzsz, bash-completion
-	yum install -y wget aria2 lrzsz bash-completion tree
+	yum install -y wget aria2 lrzsz bash-completion tree htop
 
 	case $OS_name in
 	"CentOS")

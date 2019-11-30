@@ -5,7 +5,7 @@
 #   Author        : lwk
 #   Email         : 510062390@qq.com
 #   File Name     : newdeploy.sh
-#   Last Modified : 2019-11-27 21:53
+#   Last Modified : 2019-11-30 15:02
 #   Describe      :
 #
 # ====================================================
@@ -102,6 +102,7 @@ nvim_install() {
 	yum install -y neovim python3-neovim
 	# 插件管理器
 	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	cp nvim/init.vim ~/.config/nvim/init.vim
 
 	py_V=`python -V 2>&1|awk '{print $2}'|awk -F '.' '{print $1}'`
 	if [[ $py_V -ne "3" ]];then

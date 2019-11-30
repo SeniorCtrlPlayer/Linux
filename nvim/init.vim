@@ -1,7 +1,7 @@
 "set nu
 set paste
 set ts=4 "设置tab为4个空格
-set autoindent "自动缩进
+"set autoindent "自动缩进
 set listchars=tab:>-,trail:- "设置空格和tab可见
 set directory=. "设置swap file位置
 
@@ -18,7 +18,7 @@ inoremap <C-s>     <C-O>:w<cr>
 nnoremap <C-s>     :w<cr>
 nnoremap <leader>w :w<cr>
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/init.vim')
 Plug 'scrooloose/nerdtree'
 Plug 'tomasr/molokai'
 "Plug 'valloric/YouCompleteMe'

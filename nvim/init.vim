@@ -44,7 +44,7 @@ let g:tagbar_width=30
 autocmd BufReadPost *.py*.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 
 " ycm_config
-"let g:ycm_global_ycm_extra_conf='/root/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf='/root/.config/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 "let g:ycm_key_list_select_completion=['<C-n>']
 "let g:python3_host_prog='/root/miniconda3/bin/python3.7'
 "let g:ycm_python_binary_path='/root/miniconda3/bin/python3.7'

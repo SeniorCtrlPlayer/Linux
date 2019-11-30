@@ -18,7 +18,7 @@ inoremap <C-s>     <C-O>:w<cr>
 nnoremap <C-s>     :w<cr>
 nnoremap <leader>w :w<cr>
 
-call plug#begin('~/.config/nvim/init.vim')
+call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'tomasr/molokai'
 "Plug 'valloric/YouCompleteMe'
